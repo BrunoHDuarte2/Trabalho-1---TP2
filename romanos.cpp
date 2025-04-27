@@ -4,7 +4,9 @@ using namespace std;
 int romanos_para_decimal(char const * num_romano)
 {
   map<string, int> dict_numeros = numeros_romanos();
+  // Para os dois primeiros caso de teste se avalia a string de somente um char;
   if (strlen(num_romano) == 1){
+    // Se o algarismo passado faz parte do mapeamento feito, retorna o valor. Senão, o algarismo não existe
     auto it = dict_numeros.find(num_romano);
     if (it != dict_numeros.end()){
       return dict_numeros[num_romano];
@@ -12,16 +14,28 @@ int romanos_para_decimal(char const * num_romano)
       return -1;
     }
   } else {
+    // Para o terceiro e quarto caso de teste
     int contador = 0;
+    // Se itera sobre os char da string passada e convertendo para decimal.
+    // Se o valor em num_romano[i] for menor que num_romano[i+1] então se soma ao contador num_romano[i+1]-num_romano[i];
     for(int i=0; i<strlen(num_romano); i++){
       string atual(1, num_romano[i]);
-      int valor_decimal = dict_numeros[atual];
-      contador+=valor_decimal;
+      string prox(1, num_romano[i+1]);
+      int valor_decimal_atual = dict_numeros[atual];
+      int valor_decimal_prox = dict_numeros[prox];
+      if(valor_decimal_prox>valor_decimal_atual){
+        contador+=(valor_decimal_prox-valor_decimal_atual); 
+        i+=1; 
+      } else {
+        contador+=valor_decimal_atual;
+      }
+      
     }
     return contador;
   }
   return 0; 
 }
+// Função para retornar o mapeamento dos algarismos únicos romanos em valores decimais.
 map<string, int> numeros_romanos(){
   map<string, int> numeros_romanos;
   numeros_romanos["I"] = 1;
