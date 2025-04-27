@@ -11,7 +11,14 @@ int romanos_para_decimal(char const * num_romano)
     } else {
       return -1;
     }
-    
+  } else {
+    int contador = 0;
+    for(int i=0; i<strlen(num_romano); i++){
+      string atual(1, num_romano[i]);
+      int valor_decimal = dict_numeros[atual];
+      contador+=valor_decimal;
+    }
+    return contador;
   }
   return 0; 
 }
