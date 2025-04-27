@@ -24,8 +24,8 @@ debug: testa_romanos.cpp   romanos.cpp romanos.hpp
 	gdb testa_romanos
 	
 	
-cppcheck: testa_romanos.cpp   romanos.cpp romanos.hpp
-	cppcheck  --enable=warning . 
+cppcheck: testa_romanos.cpp romanos.cpp romanos.hpp
+	cppcheck  --enable=warning testa_romanos.cpp romanos.cpp romanos.hpp 
 
 valgrind: testa_romanos
 	valgrind --leak-check=yes --log-file=valgrind.rpt testa_romanos
