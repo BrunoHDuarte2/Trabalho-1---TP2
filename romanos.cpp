@@ -5,7 +5,13 @@ int romanos_para_decimal(char const * num_romano)
 {
   map<string, int> dict_numeros = numeros_romanos();
   if (strlen(num_romano) == 1){
-    return dict_numeros[num_romano];
+    auto it = dict_numeros.find(num_romano);
+    if (it != dict_numeros.end()){
+      return dict_numeros[num_romano];
+    } else {
+      return -1;
+    }
+    
   }
   return 0; 
 }
