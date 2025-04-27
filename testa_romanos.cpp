@@ -26,3 +26,10 @@ TEST_CASE("Número romanos - número com mais de um digito", "[romanos]"){
     REQUIRE (romanos_para_decimal("III") == 3);
     REQUIRE (romanos_para_decimal("MMDCL") == 2650);
 }
+TEST_CASE("Número romanos - número com mais de um dígito, no qual um dos números que o compõem é menor que seu sucessor", "[romanos]"){
+    REQUIRE (romanos_para_decimal("IX") == 9);
+    REQUIRE (romanos_para_decimal("XIV") == 14);
+    REQUIRE(romanos_para_decimal("CMXCIX") == 999);
+    REQUIRE(romanos_para_decimal("CDXLIV") == 444);
+    REQUIRE(romanos_para_decimal("XLIV") == 44);
+}
