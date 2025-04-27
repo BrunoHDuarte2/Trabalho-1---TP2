@@ -21,7 +21,7 @@ int romanos_para_decimal(char const * num_romano) {
     // Se itera sobre os char da string passada e convertendo para decimal.
     // Se o valor em num_romano[i] for menor que num_romano[i+1]
     // Então se soma ao contador num_romano[i+1]-num_romano[i];
-    for (int i = 0; i < strlen(num_romano); i++) {
+    for (int i = 0; i < (int)strlen(num_romano); i++) {
       std::string atual(1, num_romano[i]);
       std::string prox(1, num_romano[i+1]);
       int valor_decimal_atual = dict_numeros[atual];

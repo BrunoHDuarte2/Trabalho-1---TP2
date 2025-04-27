@@ -1,2 +1,11 @@
 ﻿com o g++ e o make e demais programas instalados 
 digite "make" neste diretório 
+
+Para verificar a cobertura de testes execute "make gcov"
+Note que ele gera diversos arquivos no diretório que mas que a informação de cobertura é facilmente acessada no log de saída no terminal
+
+Para limpar os arquivos gerados por qualquer make execute "make clean"
+
+Para utilizar o verificador dinâmico de código utilize "make valgrind"
+
+Para utilizar o verificador estático utilize "make cppcheck"
