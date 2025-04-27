@@ -18,4 +18,11 @@ TEST_CASE( "Numeros romanos - algarismos inválidos", "[romanos]" ) {
     REQUIRE( romanos_para_decimal("1") == -1 );
     REQUIRE( romanos_para_decimal("{") == -1 );
 }
-
+TEST_CASE("Número romanos - número com mais de um digito", "[romanos]"){
+    REQUIRE (romanos_para_decimal("XV") == 15);
+    REQUIRE (romanos_para_decimal("XVI") == 16);
+    REQUIRE (romanos_para_decimal("XIII") == 13);
+    REQUIRE (romanos_para_decimal("VII") == 7);
+    REQUIRE (romanos_para_decimal("III") == 3);
+    REQUIRE (romanos_para_decimal("MMDCL") == 2650);
+}
